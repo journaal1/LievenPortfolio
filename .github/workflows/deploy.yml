@@ -23,18 +23,18 @@ jobs:
       - name: List files in the root directory
         run: ls -la
 
-      - name: Change directory to LievenPortfolio/web and install dependencies
+      - name: Change directory to /web and install dependencies
         run: |
-          cd LievenPortfolio/web
+          cd /web
           npm install
 
       - name: Build the project
         run: |
-          cd LievenPortfolio/web
+          cd /web
           npm run build
 
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./LievenPortfolio/web/dist
+          publish_dir: ./web/dist
