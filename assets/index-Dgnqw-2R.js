@@ -125,7 +125,7 @@
                         goal</strong> of the project
                         was to make sound
                         design fun. By hitting the instrument in different places and with different velocities, you can
-                        create a variety of unique sounds.</p>
+                        create a variety of unique sounds.</
                 </div>
                 <div class="card">
                     <div class="content">
