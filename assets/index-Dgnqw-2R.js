@@ -129,7 +129,7 @@
                 </div>
                 <div class="card">
                     <div class="content">
-                        <img src="/LievenPortfolio/img/thumbnails/vrGame.png" alt="vrGame">
+                        <img src="../../public/img/thumbnails/vrGame.png" alt="vrGame">
                     </div>
                     <span>
                         <div class="small-content">
