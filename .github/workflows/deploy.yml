@@ -17,12 +17,13 @@ jobs:
       - name: Checkout the repository
         uses: actions/checkout@v4
 
-      - name: Setup Node.js
-        uses: actions/setup-node@v3
-        with:
-          node-version: '16'
+      - name: Print working directory
+        run: pwd
 
-      - name: Install dependencies
+      - name: List files in the root directory
+        run: ls -la
+
+      - name: Change directory to LievenPortfolio/web and install dependencies
         run: |
           cd LievenPortfolio/web
           npm install
