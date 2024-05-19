@@ -25,12 +25,14 @@ jobs:
 
       - name: Change directory to /web and install dependencies
         run: |
-          cd /web
+          cd LievenPortfolio
+          cd web
           npm install
 
       - name: Build the project
         run: |
-          cd /web
+          cd LievenPortfolio
+          cd web
           npm run build
 
       - name: Deploy to GitHub Pages
