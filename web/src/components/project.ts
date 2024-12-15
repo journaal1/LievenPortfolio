@@ -1,6 +1,6 @@
 import { LitElement, TemplateResult, html, css, CSSResult } from "lit";
 import { customElement } from "lit/decorators.js";
-import "public/img/thumbnails/vrGame.png";
+import "../../public/img/thumbnails/vrGame.png";
 
 @customElement("project-template")
 export class Project extends LitElement {
@@ -125,7 +125,7 @@ export class Project extends LitElement {
         </div>
         <div class="card">
           <div class="content">
-            <img src="/img/thumbnails/vrGame.png" alt="vrGame" />
+            <img src="../img/thumbnails/vrGame.png" alt="vrGame" />
           </div>
           <span>
             <div class="small-content">
