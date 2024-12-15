@@ -12,7 +12,7 @@ export class navBar extends LitElement {
       z-index: 40;
       margin-left: auto;
       margin-right: auto;
-      max-width: 1200px; /* Limits the width on larger screens */
+      max-width: 1200px;
       display: flex;
       justify-content: flex-end;
       align-items: center;
@@ -21,7 +21,7 @@ export class navBar extends LitElement {
       background-color: rgba(255, 255, 255, 0.9);
       backdrop-filter: blur(5px);
       transition: background-color 0.3s ease;
-      padding: 0.5rem 1rem; /* Added padding for spacing */
+      padding: 0.5rem 1rem;
     }
 
     nav {
@@ -37,7 +37,7 @@ export class navBar extends LitElement {
 
     .links a {
       text-decoration: none;
-      color: black; /* Link color */
+      color: black;
       font-weight: bold;
       transition: color 0.3s ease;
     }
@@ -61,24 +61,23 @@ export class navBar extends LitElement {
 
       nav {
         width: 100%;
-        justify-content: flex-end; /* Keep links on the right */
-        margin-right: 0;
+        justify-content: flex-end;
       }
 
       .links {
         flex-direction: column;
-        align-items: flex-end; /* Align links to the right in mobile view */
+        align-items: flex-end;
         gap: 0.5rem;
       }
 
       .links a {
-        font-size: 1rem; /* Adjust font size for smaller screens */
+        font-size: 1rem;
       }
     }
 
     @media (max-width: 480px) {
       header {
-        padding: 0.5rem 1rem; /* Additional padding for smaller screens */
+        padding: 0.5rem 1rem;
       }
 
       .links a {
