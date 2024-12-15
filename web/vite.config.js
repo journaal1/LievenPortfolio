@@ -1,8 +1,8 @@
 import { defineConfig } from "vite";
 
 export default defineConfig({
-  base: "/LievenPortfolio/", // Replace 'repository-name' with your GitHub repository name
+  base: "/LievenPortfolio/",
   build: {
-    outDir: "dist", // Output directory for the build
+    outDir: "dist",
   },
 });
