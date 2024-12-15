@@ -125,7 +125,10 @@ export class Project extends LitElement {
         </div>
         <div class="card">
           <div class="content">
-            <img src="/../../img/thumbnails/vrGame.png" alt="vrGame" />
+            <img
+              src="/LievenPortfolio/img/thumbnails/vrGame.png"
+              alt="vrGame"
+            />
           </div>
           <span>
             <div class="small-content">
