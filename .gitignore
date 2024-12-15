@@ -1,0 +1,45 @@
+\# Node.js dependencies
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+\# Build directories and artifacts
+dist/
+build/
+
+\# Temporary files
+*.tmp
+*.log
+
+\# Editor and OS-specific files
+.DS_Store
+Thumbs.db
+*.swp
+*.swo
+*~
+
+\# Lit-specific output
+**/*.tsbuildinfo
+
+\# Coverage reports
+coverage/
+
+\# IDE-specific directories
+.idea/
+.vscode/
+
+\# Environment variables
+.env
+.env.local
+.env.*
+
+\# Ignore lock files for npm and yarn (if applicable)
+package-lock.json
+yarn.lock
+
+\# Other logs and temp
+*.pid
+*.seed
+*.pid.lock
+

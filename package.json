@@ -1,0 +1,5 @@
+{
+  "dependencies": {
+    "@lit-labs/router": "^0.1.3"
+  }
+}
