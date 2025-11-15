@@ -8,7 +8,7 @@ export class navBar extends LitElement {
       position: fixed;
       left: 1rem;
       right: 1rem;
-      top: 0.5rem;
+      top: 1rem;
       z-index: 40;
       margin-left: auto;
       margin-right: auto;
@@ -16,7 +16,8 @@ export class navBar extends LitElement {
       display: flex;
       justify-content: flex-end;
       align-items: center;
-      height: 3.5rem;
+      height: 3rem;
+      width: 70rem;
       border-radius: 1rem;
       background-color: rgba(255, 255, 255, 0.9);
       backdrop-filter: blur(5px);

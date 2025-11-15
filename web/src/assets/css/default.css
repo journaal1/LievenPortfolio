@@ -1,7 +1,7 @@
 :root {
     font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
     font-weight: 400;
-    background-color: rgb(235, 235, 235);
+    background-color: rgb(237, 233, 232);
     text-rendering: optimizeLegibility;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
@@ -12,7 +12,7 @@ body {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    background-color: rgb(235, 235, 235);
+    background-color: rgb(237, 233, 232);
     margin: 5em 0 0 0;
     width: 100%;
 }

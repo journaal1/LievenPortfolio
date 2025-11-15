@@ -41,7 +41,6 @@ export class WelcomePage extends LitElement {
       align-items: flex-start;
       gap: 0.25rem;
       margin: 3rem;
-      width: 55rem;
     }
 
     /* Responsive adjustments */
