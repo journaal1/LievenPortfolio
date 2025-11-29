@@ -1,4 +1,4 @@
-import {LitElement, html, css, svg, TemplateResult, SVGTemplateResult} from "lit";
+import {LitElement, html, svg, TemplateResult, SVGTemplateResult} from "lit";
 import {customElement, property, state} from "lit/decorators.js";
 
 interface JackPosition {
@@ -17,45 +17,6 @@ export interface CableConnection {
 
 @customElement("cable-manager")
 export class CableManager extends LitElement {
-    static styles = css`
-        .cable-overlay {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            pointer-events: none;
-            z-index: 999;
-        }
-
-        .cable-svg {
-            position: absolute;
-            top: 0;
-            left: 0;
-            overflow: visible;
-        }
-
-        .cable {
-            fill: none;
-            stroke-linecap: round;
-        }
-
-        .cable-shadow {
-            fill: none;
-            stroke: rgba(0, 0, 0, 0.2);
-            stroke-width: 10;
-            stroke-linecap: round;
-        }
-
-        .cable-body {
-            stroke-width: 6;
-        }
-
-        .cable-highlight {
-            stroke-width: 2;
-            opacity: 0.4;
-        }
-    `;
 
     @property({type: Array})
     connections: CableConnection[] = [];
@@ -74,35 +35,13 @@ export class CableManager extends LitElement {
 
         this.addEventListener("jack-position", this.handleJackPosition as EventListener);
         this.addEventListener("jack-removed", this.handleJackRemoved as EventListener);
-
-        this.updatePageSize();
-        window.addEventListener("resize", this.updatePageSize);
-
-        window.addEventListener("scroll", this.requestRender);
     }
 
     disconnectedCallback() {
         super.disconnectedCallback();
         this.removeEventListener("jack-position", this.handleJackPosition as EventListener);
         this.removeEventListener("jack-removed", this.handleJackRemoved as EventListener);
-        window.removeEventListener("resize", this.updatePageSize);
-        window.removeEventListener("scroll", this.requestRender);
     }
-
-    private requestRender = () => {
-        this.requestUpdate();
-    };
-
-    private updatePageSize = () => {
-        this.pageHeight = Math.max(
-            document.body.scrollHeight,
-            document.documentElement.scrollHeight
-        );
-        this.pageWidth = Math.max(
-            document.body.scrollWidth,
-            document.documentElement.scrollWidth
-        );
-    };
 
     private handleJackPosition = (e: CustomEvent) => {
         const {id, x, y, color} = e.detail;
@@ -123,12 +62,11 @@ export class CableManager extends LitElement {
 
         const dx = toX - fromX;
         const dy = toY - fromY;
-        const distance = Math.sqrt(dx * dx + dy * dy);
 
+        const distance = Math.sqrt(dx * dx + dy * dy);
         const sag = Math.min(distance * 0.25, 120);
 
         const offset = distance * 0.1;
-
         return `M ${fromX} ${fromY} C ${fromX + offset} ${fromY + sag * 0.5}, ${toX - offset} ${toY + sag * 0.5}, ${toX} ${toY}`;
     }
 
@@ -151,14 +89,18 @@ export class CableManager extends LitElement {
     protected render(): TemplateResult {
         return html`
             <div class="cable-overlay">
-                <svg
-                        class="cable-svg"
-                        width="${this.pageWidth}"
-                        height="${this.pageHeight}"
-                        viewBox="0 0 ${this.pageWidth} ${window.innerHeight}"
-                >
-                    ${this.connections.map(conn => this.renderCable(conn))}
-                </svg>
+                ${this.connections.map((connection) =>
+                        html`
+                            <svg
+                                    class="cable-svg"
+                                    width="${this.pageWidth}"
+                                    height="${this.pageHeight}"
+                                    viewBox="0 0 ${this.pageWidth} ${window.innerHeight}">
+                                ${this.renderCable(connection),
+                                  console.log(connection)  
+                                    }
+                            </svg>`
+                )}
             </div>
             <slot></slot>
         `;
