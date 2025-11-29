@@ -1,4 +1,4 @@
-import {LitElement, html, svg, TemplateResult, SVGTemplateResult} from "lit";
+import {LitElement, html, svg, TemplateResult, SVGTemplateResult, css} from "lit";
 import {customElement, property, state} from "lit/decorators.js";
 
 interface JackPosition {
@@ -17,6 +17,46 @@ export interface CableConnection {
 
 @customElement("cable-manager")
 export class CableManager extends LitElement {
+
+
+    static styles = css`
+        :host {
+            display: block;
+        }
+
+        .cable-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 999;
+        }
+
+        .cable-svg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            overflow: visible;
+        }
+
+        .cable-shadow {
+            fill: none;
+            stroke: rgba(0, 0, 0, 0.2);
+            stroke-width: 10;
+            stroke-linecap: round;
+        }
+
+        .cable-body {
+            fill: none;
+            stroke-width: 6;
+            stroke-linecap: round;
+        }
+    `;
+
 
     @property({type: Array})
     connections: CableConnection[] = [];
