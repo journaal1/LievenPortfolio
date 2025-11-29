@@ -1,5 +1,5 @@
-import { LitElement, html, css, svg, TemplateResult, SVGTemplateResult } from "lit";
-import { customElement, property, state } from "lit/decorators.js";
+import {LitElement, html, css, svg, TemplateResult, SVGTemplateResult} from "lit";
+import {customElement, property, state} from "lit/decorators.js";
 
 interface JackPosition {
     id: string;
@@ -18,11 +18,6 @@ export interface CableConnection {
 @customElement("cable-manager")
 export class CableManager extends LitElement {
     static styles = css`
-        :host {
-            display: block;
-            position: relative;
-        }
-
         .cable-overlay {
             position: fixed;
             top: 0;
@@ -62,7 +57,7 @@ export class CableManager extends LitElement {
         }
     `;
 
-    @property({ type: Array })
+    @property({type: Array})
     connections: CableConnection[] = [];
 
     @state()
@@ -83,7 +78,6 @@ export class CableManager extends LitElement {
         this.updatePageSize();
         window.addEventListener("resize", this.updatePageSize);
 
-        // Update on scroll to handle fixed positioning
         window.addEventListener("scroll", this.requestRender);
     }
 
@@ -111,14 +105,12 @@ export class CableManager extends LitElement {
     };
 
     private handleJackPosition = (e: CustomEvent) => {
-        const { id, x, y, color } = e.detail;
-        this.jackPositions = new Map(this.jackPositions).set(id, { id, x, y, color });
+        const {id, x, y, color} = e.detail;
+        this.jackPositions = this.jackPositions.set(id, {id, x, y, color})
     };
 
     private handleJackRemoved = (e: CustomEvent) => {
-        const newPositions = new Map(this.jackPositions);
-        newPositions.delete(e.detail.id);
-        this.jackPositions = newPositions;
+        this.jackPositions.delete(e.detail.id);
     };
 
     private calculateCablePath(from: JackPosition, to: JackPosition): string {
@@ -159,11 +151,11 @@ export class CableManager extends LitElement {
     protected render(): TemplateResult {
         return html`
             <div class="cable-overlay">
-                <svg 
-                    class="cable-svg" 
-                    width="${this.pageWidth}" 
-                    height="${this.pageHeight}"
-                    viewBox="0 0 ${this.pageWidth} ${window.innerHeight}"
+                <svg
+                        class="cable-svg"
+                        width="${this.pageWidth}"
+                        height="${this.pageHeight}"
+                        viewBox="0 0 ${this.pageWidth} ${window.innerHeight}"
                 >
                     ${this.connections.map(conn => this.renderCable(conn))}
                 </svg>
