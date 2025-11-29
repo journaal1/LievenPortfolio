@@ -1,4 +1,4 @@
-import { LitElement, html, css, TemplateResult } from "lit";
+import { LitElement, html, TemplateResult } from "lit";
 import { customElement } from "lit/decorators.js";
 
 import "./components/cables/cable-manager.ts";
@@ -10,48 +10,12 @@ import "./components/project.ts";
 
 @customElement("portfolio-root")
 export class Root extends LitElement {
-    static styles = css`
-        .jack-left {
-            position: absolute;
-            left: -20px;
-            top: 50%;
-            transform: translateY(-50%);
-        }
-
-        .jack-right {
-            position: absolute;
-            right: -20px;
-            top: 50%;
-            transform: translateY(-50%);
-        }
-
-        .header-jacks {
-            position: absolute;
-            top: 20px;
-            left: 40px;
-            display: flex;
-            gap: 30px;
-        }
-
-        footer {
-            position: relative;
-        }
-
-        .footer-jack {
-            position: absolute;
-            left: 50%;
-            top: -20px;
-            transform: translateX(-50%);
-        }
-    `;
-
-    // Define your cable connections
     private connections = [
-        { from: "header-1", to: "project-engine", color: "#EC4899" },  // Pink
-        { from: "header-2", to: "project-threejs", color: "#FBBF24" }, // Yellow
-        { from: "project-engine", to: "project-giff", color: "#8B5CF6" }, // Purple
-        { from: "project-threejs", to: "project-synth", color: "#3B82F6" }, // Blue
-        { from: "project-giff", to: "footer-1", color: "#10B981" }, // Green
+        { from: "header-1", to: "project-engine", color: "#EC4899" },
+        { from: "header-2", to: "project-threejs", color: "#FBBF24" },
+        { from: "project-engine", to: "project-giff", color: "#8B5CF6" },
+        { from: "project-threejs", to: "project-synth", color: "#3B82F6" },
+        { from: "project-giff", to: "footer-1", color: "#10B981" }, 
     ];
 
     protected render(): TemplateResult {
@@ -59,7 +23,6 @@ export class Root extends LitElement {
             <cable-manager .connections="${this.connections}">
                 
                 <nav-bar>
-                    <!-- Jacks in the header area -->
                     <div class="header-jacks">
                         <jack-point jack-id="header-1" color="#EC4899"></jack-point>
                         <jack-point jack-id="header-2" color="#FBBF24"></jack-point>
@@ -141,16 +104,6 @@ export class Root extends LitElement {
                         class="jack-right"
                     ></jack-point>
                 </project-template>
-                
-                <footer>
-                    <jack-point 
-                        jack-id="footer-1" 
-                        color="#10B981"
-                        class="footer-jack"
-                    ></jack-point>
-                    Copyright &copy; Lieven Schokker 2024
-                </footer>
-
             </cable-manager>
         `;
     }
