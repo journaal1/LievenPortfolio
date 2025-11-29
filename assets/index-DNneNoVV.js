@@ -28,29 +28,24 @@
  * @license
  * Copyright 2017 Google LLC
  * SPDX-License-Identifier: BSD-3-Clause
- */function se(r){return u({...r,state:!0,attribute:!1})}var We=Object.defineProperty,Fe=Object.getOwnPropertyDescriptor,B=(r,e,t,s)=>{for(var i=s>1?void 0:s?Fe(e,t):e,o=r.length-1,n;o>=0;o--)(n=r[o])&&(i=(s?n(e,t,i):n(i))||i);return s&&i&&We(e,t,i),i};let j=class extends f{constructor(){super(...arguments),this.connections=[],this.jackPositions=new Map,this.pageHeight=0,this.pageWidth=0,this.requestRender=()=>{this.requestUpdate()},this.updatePageSize=()=>{this.pageHeight=Math.max(document.body.scrollHeight,document.documentElement.scrollHeight),this.pageWidth=Math.max(document.body.scrollWidth,document.documentElement.scrollWidth)},this.handleJackPosition=r=>{const{id:e,x:t,y:s,color:i}=r.detail;this.jackPositions=new Map(this.jackPositions).set(e,{id:e,x:t,y:s,color:i})},this.handleJackRemoved=r=>{const e=new Map(this.jackPositions);e.delete(r.detail.id),this.jackPositions=e}}connectedCallback(){super.connectedCallback(),this.addEventListener("jack-position",this.handleJackPosition),this.addEventListener("jack-removed",this.handleJackRemoved),this.updatePageSize(),window.addEventListener("resize",this.updatePageSize),window.addEventListener("scroll",this.requestRender)}disconnectedCallback(){super.disconnectedCallback(),this.removeEventListener("jack-position",this.handleJackPosition),this.removeEventListener("jack-removed",this.handleJackRemoved),window.removeEventListener("resize",this.updatePageSize),window.removeEventListener("scroll",this.requestRender)}calculateCablePath(r,e){const t=window.scrollY,s=r.x,i=r.y-t,o=e.x,n=e.y-t,l=o-s,a=n-i,h=Math.sqrt(l*l+a*a),d=Math.min(h*.25,120),c=h*.1;return`M ${s} ${i} C ${s+c} ${i+d*.5}, ${o-c} ${n+d*.5}, ${o} ${n}`}renderCable(r){const e=this.jackPositions.get(r.from),t=this.jackPositions.get(r.to);if(!e||!t)return ue``;const s=this.calculateCablePath(e,t);return ue`
+ */function se(r){return u({...r,state:!0,attribute:!1})}var We=Object.defineProperty,Fe=Object.getOwnPropertyDescriptor,B=(r,e,t,s)=>{for(var i=s>1?void 0:s?Fe(e,t):e,o=r.length-1,n;o>=0;o--)(n=r[o])&&(i=(s?n(e,t,i):n(i))||i);return s&&i&&We(e,t,i),i};let j=class extends f{constructor(){super(...arguments),this.connections=[],this.jackPositions=new Map,this.pageHeight=0,this.pageWidth=0,this.requestRender=()=>{this.requestUpdate()},this.updatePageSize=()=>{this.pageHeight=Math.max(document.body.scrollHeight,document.documentElement.scrollHeight),this.pageWidth=Math.max(document.body.scrollWidth,document.documentElement.scrollWidth)},this.handleJackPosition=r=>{const{id:e,x:t,y:s,color:i}=r.detail;this.jackPositions=this.jackPositions.set(e,{id:e,x:t,y:s,color:i})},this.handleJackRemoved=r=>{this.jackPositions.delete(r.detail.id)}}connectedCallback(){super.connectedCallback(),this.addEventListener("jack-position",this.handleJackPosition),this.addEventListener("jack-removed",this.handleJackRemoved),this.updatePageSize(),window.addEventListener("resize",this.updatePageSize),window.addEventListener("scroll",this.requestRender)}disconnectedCallback(){super.disconnectedCallback(),this.removeEventListener("jack-position",this.handleJackPosition),this.removeEventListener("jack-removed",this.handleJackRemoved),window.removeEventListener("resize",this.updatePageSize),window.removeEventListener("scroll",this.requestRender)}calculateCablePath(r,e){const t=window.scrollY,s=r.x,i=r.y-t,o=e.x,n=e.y-t,l=o-s,a=n-i,h=Math.sqrt(l*l+a*a),d=Math.min(h*.25,120),c=h*.1;return`M ${s} ${i} C ${s+c} ${i+d*.5}, ${o-c} ${n+d*.5}, ${o} ${n}`}renderCable(r){const e=this.jackPositions.get(r.from),t=this.jackPositions.get(r.to);if(!e||!t)return ue``;const s=this.calculateCablePath(e,t);return ue`
             <g class="cable">
                 <path class="cable-shadow" d="${s}" transform="translate(2, 4)" />
                 <path class="cable-body" d="${s}" stroke="${r.color}" />
             </g>
         `}render(){return C`
             <div class="cable-overlay">
-                <svg 
-                    class="cable-svg" 
-                    width="${this.pageWidth}" 
-                    height="${this.pageHeight}"
-                    viewBox="0 0 ${this.pageWidth} ${window.innerHeight}"
+                <svg
+                        class="cable-svg"
+                        width="${this.pageWidth}"
+                        height="${this.pageHeight}"
+                        viewBox="0 0 ${this.pageWidth} ${window.innerHeight}"
                 >
                     ${this.connections.map(r=>this.renderCable(r))}
                 </svg>
             </div>
             <slot></slot>
         `}};j.styles=H`
-        :host {
-            display: block;
-            position: relative;
-        }
-
         .cable-overlay {
             position: fixed;
             top: 0;
