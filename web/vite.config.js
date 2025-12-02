@@ -7,10 +7,10 @@ export default defineConfig({
     outDir: "dist",
   },
   resolve: {
-    alias: {
-      "three": path.resolve(__dirname, "node_modules/three"),
-      "three/addons/": path.resolve(__dirname, "node_modules/three/examples/jsm/"),
-      "three.meshline": path.resolve(__dirname, "node_modules/three.meshline"),
-    }
+    alias: [
+      { find: "three/addons/", replacement: path.resolve(__dirname, "node_modules/three/examples/jsm/") },
+      { find: "three", replacement: path.resolve(__dirname, "node_modules/three") },
+      { find: "three.meshline", replacement: path.resolve(__dirname, "node_modules/three.meshline") },
+    ]
   }
 });
