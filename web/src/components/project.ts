@@ -87,8 +87,16 @@ export class Project extends LitElement {
             padding: 1.25rem;
             position: relative;
             z-index: 10;
-            display: block;
             background-color: #f8f9fa;
+            border-radius: 0.5rem;
+            width: 100%;
+            box-sizing: border-box;
+        }
+
+        slot[name="interactive"]::slotted(*) {
+            display: block;
+            width: 100%;
+            height: 350px;
             border-radius: 0.5rem;
         }
 
@@ -124,7 +132,8 @@ export class Project extends LitElement {
             object-fit: contain;
             border-radius: 0.5rem;
             width: 100%;
-            height: 100%;
+            height: auto;
+            min-height: 200px;
         }
 
         .link {
@@ -210,40 +219,42 @@ export class Project extends LitElement {
 
     protected render(): TemplateResult {
         return html`
-            <section class="${this.reverseLayout ? 'reverse' : ''}">
-                <div class="textBox">
-                    <h2>${this.subtitle}</h2>
-                    <h1>${this.title}</h1>
-                    <p>${this.description}</p>
-                </div>
-                <div class="card">
-                    <div class="content">
-                        ${this.isVideo
-                                ? html`
-                                    <video
-                                            src="${this.imageSrc}"
-                                            autoplay
-                                            loop
-                                            muted
-                                            playsinline
-                                            aria-label="${this.imageAlt}"
-                                    ></video>`
-                                : html`<img src="${this.imageSrc}" alt="${this.imageAlt}"/>`
-                        }
-                    </div>
-                    <span>
-            <div class="small-content">
-              <h2>
-                ${this.cardTitle}
-                <p>${this.cardSubtitle}</p>
-              </h2>
-              <a href="${this.detailsLink}" class="link">
-                <h3 class="details">More Details -></h3>
-              </a>
+        <section class="${this.reverseLayout ? 'reverse' : ''}">
+            <div class="textBox">
+                <h2>${this.subtitle}</h2>
+                <h1>${this.title}</h1>
+                <p>${this.description}</p>
             </div>
-          </span>
+            <div class="card">
+                <div class="content">
+                    <slot name="interactive">
+                        ${this.isVideo
+            ? html`
+                                <video
+                                    src="${this.imageSrc}"
+                                    autoplay
+                                    loop
+                                    muted
+                                    playsinline
+                                    aria-label="${this.imageAlt}"
+                                ></video>`
+            : html`<img src="${this.imageSrc}" alt="${this.imageAlt}"/>`
+        }
+                    </slot>
                 </div>
-            </section>
-        `;
+                <span>
+                    <div class="small-content">
+                        <h2>
+                            ${this.cardTitle}
+                            <p>${this.cardSubtitle}</p>
+                        </h2>
+                        <a href="${this.detailsLink}" class="link">
+                            <h3 class="details">More Details -></h3>
+                        </a>
+                    </div>
+                </span>
+            </div>
+        </section>
+    `;
     }
 }

@@ -38,13 +38,13 @@ export class navBar extends LitElement {
 
     .links a {
       text-decoration: none;
-      color: black;
+      color: #3d3557;
       font-weight: bold;
       transition: color 0.3s ease;
     }
 
     .links a:hover {
-      color: red;
+      color:  #c94940;
     }
 
     a {
@@ -92,7 +92,10 @@ export class navBar extends LitElement {
       <header>
         <nav>
           <div class="links">
-            <a href="https://soundcloud.com/lieven-schokker">Music</a>
+            <a href="https://github.com/journaal1">Github</a>
+          </div>
+          <div class="links">
+            <a href="https://www.linkedin.com/in/lieven-schokker-380402238/">LinkedIn</a>
           </div>
         </nav>
       </header>

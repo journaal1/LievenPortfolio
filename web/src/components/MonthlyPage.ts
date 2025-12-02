@@ -7,7 +7,7 @@ export class MonthlyPage extends LitElement {
     h1 {
       font-size: 2rem;
       font-weight: 700;
-      color: #1a202c;
+      color: #3d3557;
       margin: 0;
       font-family: "Comfortaa", sans-serif;
       font-style: italic;

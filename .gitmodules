@@ -1,0 +1,3 @@
+[submodule "ThreeJS-Drawing"]
+	path = ThreeJS-Drawing
+	url = https://github.com/journaal1/ThreeJS-Drawing

@@ -4,6 +4,7 @@ import { customElement } from "lit/decorators.js";
 import "./components/navbar.ts";
 import "./components/welcomePage.ts";
 import "./components/project.ts";
+import "./components/threejs-drawing.ts";
 
 @customElement("portfolio-root")
 export class Root extends LitElement {
@@ -12,7 +13,10 @@ export class Root extends LitElement {
             <nav-bar>
             </nav-bar>
 
-            <welcome-page></welcome-page>
+            <welcome-page
+                    imageSrc="/img/thumbnails/profile.jpg"
+                    imageAlt="Lieven Schokker"
+            ></welcome-page>
             
             <project-template
                     subtitle="Multiplayer game engine in c++"
@@ -31,23 +35,24 @@ export class Root extends LitElement {
                     subtitle="A ThreeJS experiment"
                     title="Draw in 3D"
                     description="Challenged myself to quickly make something in ThreeJS"
-                    imageSrc="/img/thumbnails/ai.png"
                     imageAlt="Simple drawing"
                     cardTitle="Try me!"
                     cardSubtitle="Drawing in 3D"
-                    detailsLink="https://github.com/journaal1/GIFSplash"
+                    detailsLink="https://github.com/your-repo"
             >
+                <threejs-drawing slot="interactive"></threejs-drawing>
             </project-template>
 
             <project-template
                     subtitle="GiffSplash"
                     title="A couch play party game"
                     description="Giffsplash a web based game made with Springboot and Angular."
-                    imageSrc="/img/thumbnails/ai.png"
+                    imageSrc="/img/thumbnails/giffSplash.png"
                     imageAlt="Drawing interaction"
                     cardTitle="Spring Boot + Angular"
                     cardSubtitle="Giffsplash source code"
                     detailsLink="https://github.com/journaal1/GIFSplash"
+                    reverseLayout
             >
             </project-template>
         `;
