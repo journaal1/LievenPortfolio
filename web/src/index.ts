@@ -55,6 +55,17 @@ export class Root extends LitElement {
                     reverseLayout
             >
             </project-template>
+            <project-template
+                    subtitle="DLL-Dementia"
+                    title="A virtual reality experience made in unity"
+                    description="A VR experience made in unity"
+                    imageSrc="/video/thumbnails/dementia.mp4"
+                    imageAlt="Drawing interaction"
+                    cardTitle="Unity Game Engine"
+                    cardSubtitle="Learn more about digital life"
+                    detailsLink="https://github.com/journaal1/GIFSplash"
+            >
+            </project-template>
         `;
     }
 }
