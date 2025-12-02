@@ -13,17 +13,16 @@ export class Root extends LitElement {
             </nav-bar>
 
             <welcome-page></welcome-page>
-
-            <!-- Add jacks to each project -->
+            
             <project-template
                     subtitle="Multiplayer game engine in c++"
-                    title="Multiplayer game engine in c++"
-                    description="A modern e-commerce platform built with React and TypeScript"
-                    imageSrc="/img/thumbnails/ecommerce.png"
-                    imageAlt="E-Commerce Platform"
+                    title="WIP Multiplayer game engine in c++"
+                    description="A server authorative multiplayer game engine written in C++ using SDL"
+                    imageSrc="/video/thumbnails/gameEngine.mp4"
+                    imageAlt="Game Engine Video"
                     cardTitle="Based on SDL"
-                    cardSubtitle="Cross platform available"
-                    detailsLink="/project-details/ecommerce"
+                    cardSubtitle="Cross platform"
+                    detailsLink="/private-repo"
                     reverseLayout
             >
             </project-template>
@@ -31,11 +30,11 @@ export class Root extends LitElement {
             <project-template
                     subtitle="A ThreeJS experiment"
                     title="Draw in 3D"
-                    description="A Quick and simple demo"
+                    description="Challenged myself to quickly make something in ThreeJS"
                     imageSrc="/img/thumbnails/ai.png"
                     imageAlt="Simple drawing"
                     cardTitle="Try me!"
-                    cardSubtitle="Giffsplash source code"
+                    cardSubtitle="Drawing in 3D"
                     detailsLink="https://github.com/journaal1/GIFSplash"
             >
             </project-template>
@@ -51,19 +50,6 @@ export class Root extends LitElement {
                     detailsLink="https://github.com/journaal1/GIFSplash"
             >
             </project-template>
-
-            <project-template
-                    subtitle="Unity Engine"
-                    title="Virtual Synthesizer"
-                    description="This project features a synthesizer in virtual reality."
-                    imageSrc="/img/thumbnails/vrGame.png"
-                    imageAlt="VR Game"
-                    cardTitle="Unity"
-                    cardSubtitle="Virtual Synthesizer"
-                    detailsLink="/project-details/vr-synth"
-            >
-            </project-template>
-            </cable-manager>
         `;
     }
 }
