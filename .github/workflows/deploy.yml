@@ -1,5 +1,4 @@
 name: Deploy to GitHub Pages
-
 on:
   push:
     branches:
@@ -8,31 +7,26 @@ on:
     branches:
       - main
   workflow_dispatch:
-
 jobs:
   build:
     runs-on: ubuntu-latest
-
     steps:
       - name: Checkout the repository
         uses: actions/checkout@v4
-
+        with:
+          submodules: recursive
       - name: Print working directory
         run: pwd
-
       - name: List files in the root directory
         run: ls -la
-
       - name: Change directory to /web and install dependencies
         run: |
           cd web
           npm install
-
       - name: Build the project
         run: |
           cd web
           npm run build
-
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v4
         with:
