@@ -8472,7 +8472,7 @@ void main() {
                     imageAlt="Game Engine Video"
                     cardTitle="Based on SDL"
                     cardSubtitle="Cross platform"
-                    detailsLink="/private-repo"
+                    detailsLink="https://github.com/journaal1"
                     reverseLayout
             >
             </project-template>
@@ -8484,7 +8484,7 @@ void main() {
                     imageAlt="Simple drawing"
                     cardTitle="Try me!"
                     cardSubtitle="Drawing in 3D"
-                    detailsLink="https://github.com/your-repo"
+                    detailsLink="https://github.com/journaal1"
             >
                 <threejs-drawing slot="interactive"></threejs-drawing>
             </project-template>
@@ -8497,7 +8497,7 @@ void main() {
                     imageAlt="Drawing interaction"
                     cardTitle="Spring Boot + Angular"
                     cardSubtitle="Giffsplash source code"
-                    detailsLink="https://github.com/journaal1/GIFSplash"
+                    detailsLink="https://github.com/journaal1"
                     reverseLayout
             >
             </project-template>
