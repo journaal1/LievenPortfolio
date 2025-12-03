@@ -8484,7 +8484,7 @@ void main() {
             </nav-bar>
 
             <welcome-page
-                    imageSrc="./img/thumbnails/profile.jpg"
+                    imageSrc="img/thumbnails/profile.jpg"
                     imageAlt="Lieven Schokker"
             ></welcome-page>
 
@@ -8506,7 +8506,7 @@ void main() {
                     Source code is available on request!"
 
 
-                    imageSrc="./video/thumbnails/gameEngine.mp4"
+                    imageSrc="video/thumbnails/gameEngine.mp4"
                     imageAlt="Game Engine Video"
                     cardTitle="C++ - SDL - Valve GNS"
                     cardSubtitle="Cross platform development via CMAKE"
@@ -8540,7 +8540,7 @@ void main() {
                     subtitle="GiffSplash"
                     title="Couchplay Party Game"
                     description="Giffsplash: a web-based game made with Spring Boot and Angular, using WebSockets for player state management."
-                    imageSrc="./img/thumbnails/giffSplash.png"
+                    imageSrc="img/thumbnails/giffSplash.png"
                     imageAlt="Drawing interaction"
                     cardTitle="Spring Boot - Angular - GitLab CI/CD"
                     cardSubtitle="Gamestate management"
