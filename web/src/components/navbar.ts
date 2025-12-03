@@ -6,84 +6,43 @@ export class navBar extends LitElement {
   static styles: CSSResult = css`
     header {
       position: fixed;
-      left: 1rem;
-      right: 1rem;
-      top: 1rem;
+      left: 10vw;
+      top: 2vh;
+      padding: 2vw;
       z-index: 40;
-      margin-left: auto;
-      margin-right: auto;
-      max-width: 1200px;
       display: flex;
       justify-content: flex-end;
       align-items: center;
-      height: 3rem;
-      width: 70rem;
-      border-radius: 1rem;
+      height: 7vh;
+      min-height: 45px;
+      border-radius: 25px;
+      width: 80vw;
       background-color: rgba(255, 255, 255, 0.9);
-      backdrop-filter: blur(5px);
-      transition: background-color 0.3s ease;
-      padding: 0.5rem 1rem;
+      box-sizing: border-box;
+      backdrop-filter: blur(5px)
     }
 
     nav {
       display: flex;
       align-items: center;
-      margin-right: 1rem;
     }
 
     .links {
       display: flex;
-      gap: 1rem;
+      gap: 5vw;
     }
 
     .links a {
       text-decoration: none;
       color: #3d3557;
       font-weight: bold;
+      font-size: clamp(14px, 4vw, 18px);
       transition: color 0.3s ease;
+      white-space: nowrap;
     }
 
     .links a:hover {
-      color:  #c94940;
-    }
-
-    a {
-      margin: 0.5em;
-    }
-
-    /* Responsive Styles */
-    @media (max-width: 768px) {
-      header {
-        flex-direction: column;
-        align-items: flex-start;
-        height: auto;
-        padding: 1rem;
-      }
-
-      nav {
-        width: 100%;
-        justify-content: flex-end;
-      }
-
-      .links {
-        flex-direction: column;
-        align-items: flex-end;
-        gap: 0.5rem;
-      }
-
-      .links a {
-        font-size: 1rem;
-      }
-    }
-
-    @media (max-width: 480px) {
-      header {
-        padding: 0.5rem 1rem;
-      }
-
-      .links a {
-        font-size: 0.9rem;
-      }
+      color: #c94940;
     }
   `;
 
@@ -93,8 +52,6 @@ export class navBar extends LitElement {
         <nav>
           <div class="links">
             <a href="https://github.com/journaal1">Github</a>
-          </div>
-          <div class="links">
             <a href="https://www.linkedin.com/in/lieven-schokker-380402238/">LinkedIn</a>
           </div>
         </nav>

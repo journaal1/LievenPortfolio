@@ -55,9 +55,9 @@ export class Project extends LitElement {
             flex-direction: row;
             justify-content: space-between;
             align-items: flex-start;
-            gap: 2rem;
-            margin: 10rem 3rem 20rem 3rem;
-            max-width: 70rem;
+            gap: 4vw;
+            margin: 15vh 3vw 25vh 3vw;
+            max-width: 90vw;
             width: 100%;
         }
 
@@ -70,25 +70,25 @@ export class Project extends LitElement {
             position: relative;
             background-color: #f8f9fa;
             box-sizing: border-box;
-            margin-left: 2em;
+            margin-left: 3vw;
             border: 2px solid #f8f9fa;
-            border-radius: 0.5rem;
+            border-radius: 1vw;
             width: 50%;
-            min-width: 300px;
+            min-width: 40vw;
             z-index: 1;
         }
 
         section.reverse .card {
             margin-left: 0;
-            margin-right: 2em;
+            margin-right: 3vw;
         }
 
         .content {
-            padding: 1.25rem;
+            padding: 2vw;
             position: relative;
             z-index: 10;
             background-color: #f8f9fa;
-            border-radius: 0.5rem;
+            border-radius: 1vw;
             width: 100%;
             box-sizing: border-box;
         }
@@ -96,43 +96,46 @@ export class Project extends LitElement {
         slot[name="interactive"]::slotted(*) {
             display: block;
             width: 100%;
-            height: 350px;
-            border-radius: 0.5rem;
+            height: 45vh;
+            min-height: 250px;
+            border-radius: 1vw;
         }
 
         span {
             position: absolute;
-            border-radius: 0.5rem;
-            width: 100%;
-            height: 100%;
-            top: 6rem;
-            right: 3rem;
+            border-radius: 1vw;
+            width: calc(100% - 2vw);
+            height: calc(100% + 5vh);
+            top: 6vh;
+            right: -3vw;
             border: 2px solid white;
-            z-index: 0;
+            z-index: -1;
+            box-sizing: border-box;
         }
 
         section.reverse span {
             right: auto;
-            left: 3rem;
+            left: -3vw;
         }
 
         .small-content {
             display: flex;
             position: absolute;
-            left: 3rem;
-            right: 2rem;
-            bottom: 2rem;
+            left: 2vw;
+            right: 2vw;
+            bottom: 2vh;
+            min-height: 8vh;
             justify-content: space-between;
-            align-items: center;
-            flex-wrap: wrap;
-            gap: 1rem;
+            align-items: flex-end;
+            padding-top: 2vh;
+            gap: 2vw;
         }
 
         img, video {
-            object-fit: contain;
-            border-radius: 0.5rem;
+            object-fit: fill;
+            border-radius: 1vw;
             width: 100%;
-            height: auto;
+            height: 35vh;
             min-height: 200px;
         }
 
@@ -146,10 +149,10 @@ export class Project extends LitElement {
             flex-direction: column;
             justify-content: flex-start;
             align-items: flex-start;
-            gap: 0.25rem;
-            margin: 3rem;
+            gap: 1vh;
+            margin: 4vw;
             width: 50%;
-            min-width: 250px;
+            min-width: 35vw;
         }
 
         .details {
@@ -159,46 +162,7 @@ export class Project extends LitElement {
             align-items: flex-end;
         }
 
-        @media screen and (max-width: 80rem) {
-            section {
-                margin: 8rem 2rem 15rem 2rem;
-            }
-
-            h1 {
-                font-size: 1.75rem;
-            }
-        }
-
-        @media screen and (max-width: 60rem) {
-            section {
-                margin: 5rem 1.5rem 10rem 1.5rem;
-                gap: 1.5rem;
-            }
-
-            h1 {
-                font-size: 1.5rem;
-            }
-
-            h2 {
-                font-size: 1rem;
-            }
-
-            span {
-                right: 1.5rem;
-                top: 5rem;
-            }
-
-            section.reverse span {
-                right: auto;
-                left: 1.5rem;
-            }
-
-            .small-content {
-                font-size: 0.9rem;
-            }
-        }
-
-        @media screen and (max-width: 45rem) {
+        @media screen and (max-width: 700px) {
             section,
             section.reverse {
                 flex-direction: column;
@@ -208,10 +172,23 @@ export class Project extends LitElement {
             .card {
                 margin-left: 0 !important;
                 margin-right: 0 !important;
+                width: 90vw;
+                min-width: unset;
+            }
+
+            .textBox {
+                width: 90vw;
+                min-width: unset;
+                margin: 4vw 2vw;
             }
 
             span {
-                right: 1.5rem !important;
+                right: -2vw !important;
+                left: auto !important;
+            }
+
+            section.reverse span {
+                right: -2vw !important;
                 left: auto !important;
             }
         }
@@ -219,42 +196,42 @@ export class Project extends LitElement {
 
     protected render(): TemplateResult {
         return html`
-        <section class="${this.reverseLayout ? 'reverse' : ''}">
-            <div class="textBox">
-                <h2>${this.subtitle}</h2>
-                <h1>${this.title}</h1>
-                <p>${this.description}</p>
-            </div>
-            <div class="card">
-                <div class="content">
-                    <slot name="interactive">
-                        ${this.isVideo
+            <section class="${this.reverseLayout ? 'reverse' : ''}">
+                <div class="textBox">
+                    <h2>${this.subtitle}</h2>
+                    <h1>${this.title}</h1>
+                    <p>${this.description}</p>
+                </div>
+                <div class="card">
+                    <div class="content">
+                        <slot name="interactive">
+                            ${this.isVideo
             ? html`
-                                <video
-                                    src="${this.imageSrc}"
-                                    autoplay
-                                    loop
-                                    muted
-                                    playsinline
-                                    aria-label="${this.imageAlt}"
-                                ></video>`
+                                    <video
+                                        src="${this.imageSrc}"
+                                        autoplay
+                                        loop
+                                        muted
+                                        playsinline
+                                        aria-label="${this.imageAlt}"
+                                    ></video>`
             : html`<img src="${this.imageSrc}" alt="${this.imageAlt}"/>`
         }
-                    </slot>
-                </div>
-                <span>
-                    <div class="small-content">
-                        <h2>
-                            ${this.cardTitle}
-                            <p>${this.cardSubtitle}</p>
-                        </h2>
-                        <a href="${this.detailsLink}" class="link">
-                            <h3 class="details">More Details -></h3>
-                        </a>
+                        </slot>
                     </div>
-                </span>
-            </div>
-        </section>
-    `;
+                    <span>
+                        <div class="small-content">
+                            <h2>
+                                ${this.cardTitle}
+                                <p>${this.cardSubtitle}</p>
+                            </h2>
+                            <a href="${this.detailsLink}" class="link">
+                                <h3 class="details">More Details -></h3>
+                            </a>
+                        </div>
+                    </span>
+                </div>
+            </section>
+        `;
     }
 }
