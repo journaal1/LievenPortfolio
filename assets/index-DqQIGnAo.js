@@ -29,8 +29,6 @@
         <nav>
           <div class="links">
             <a href="https://github.com/journaal1">Github</a>
-          </div>
-          <div class="links">
             <a href="https://www.linkedin.com/in/lieven-schokker-380402238/">LinkedIn</a>
           </div>
         </nav>
@@ -38,84 +36,43 @@
     `}};Wp.styles=bd`
     header {
       position: fixed;
-      left: 1rem;
-      right: 1rem;
-      top: 1rem;
+      left: 10vw;
+      top: 2vh;
+      padding: 2vw;
       z-index: 40;
-      margin-left: auto;
-      margin-right: auto;
-      max-width: 1200px;
       display: flex;
       justify-content: flex-end;
       align-items: center;
-      height: 3rem;
-      width: 70rem;
-      border-radius: 1rem;
+      height: 7vh;
+      min-height: 45px;
+      border-radius: 25px;
+      width: 80vw;
       background-color: rgba(255, 255, 255, 0.9);
-      backdrop-filter: blur(5px);
-      transition: background-color 0.3s ease;
-      padding: 0.5rem 1rem;
+      box-sizing: border-box;
+      backdrop-filter: blur(5px)
     }
 
     nav {
       display: flex;
       align-items: center;
-      margin-right: 1rem;
     }
 
     .links {
       display: flex;
-      gap: 1rem;
+      gap: 5vw;
     }
 
     .links a {
       text-decoration: none;
       color: #3d3557;
       font-weight: bold;
+      font-size: clamp(14px, 4vw, 18px);
       transition: color 0.3s ease;
+      white-space: nowrap;
     }
 
     .links a:hover {
-      color:  #c94940;
-    }
-
-    a {
-      margin: 0.5em;
-    }
-
-    /* Responsive Styles */
-    @media (max-width: 768px) {
-      header {
-        flex-direction: column;
-        align-items: flex-start;
-        height: auto;
-        padding: 1rem;
-      }
-
-      nav {
-        width: 100%;
-        justify-content: flex-end;
-      }
-
-      .links {
-        flex-direction: column;
-        align-items: flex-end;
-        gap: 0.5rem;
-      }
-
-      .links a {
-        font-size: 1rem;
-      }
-    }
-
-    @media (max-width: 480px) {
-      header {
-        padding: 0.5rem 1rem;
-      }
-
-      .links a {
-        font-size: 0.9rem;
-      }
+      color: #c94940;
     }
   `;Wp=MA([th("nav-bar")],Wp);var SA=Object.defineProperty,EA=Object.getOwnPropertyDescriptor,Gm=(h,n,s,l)=>{for(var d=l>1?void 0:l?EA(n,s):n,p=h.length-1,x;p>=0;p--)(x=h[p])&&(d=(l?x(n,s,d):x(d))||d);return l&&d&&SA(n,s,d),d};let $c=class extends ta{constructor(){super(...arguments),this.imageSrc="",this.imageAlt=""}render(){return Ro`
       <div class="container">
@@ -199,40 +156,40 @@
       }
     }
   `;Gm([pr({type:String})],$c.prototype,"imageSrc",2);Gm([pr({type:String})],$c.prototype,"imageAlt",2);$c=Gm([th("welcome-page")],$c);var TA=Object.defineProperty,AA=Object.getOwnPropertyDescriptor,Ir=(h,n,s,l)=>{for(var d=l>1?void 0:l?AA(n,s):n,p=h.length-1,x;p>=0;p--)(x=h[p])&&(d=(l?x(n,s,d):x(d))||d);return l&&d&&TA(n,s,d),d};let Js=class extends ta{constructor(){super(...arguments),this.subtitle="",this.title="",this.description="",this.imageSrc="",this.imageAlt="",this.cardTitle="",this.cardSubtitle="",this.detailsLink="#",this.reverseLayout=!1}get isVideo(){return[".mp4",".webm",".ogg",".mov"].some(n=>this.imageSrc.toLowerCase().endsWith(n))}render(){return Ro`
-        <section class="${this.reverseLayout?"reverse":""}">
-            <div class="textBox">
-                <h2>${this.subtitle}</h2>
-                <h1>${this.title}</h1>
-                <p>${this.description}</p>
-            </div>
-            <div class="card">
-                <div class="content">
-                    <slot name="interactive">
-                        ${this.isVideo?Ro`
-                                <video
-                                    src="${this.imageSrc}"
-                                    autoplay
-                                    loop
-                                    muted
-                                    playsinline
-                                    aria-label="${this.imageAlt}"
-                                ></video>`:Ro`<img src="${this.imageSrc}" alt="${this.imageAlt}"/>`}
-                    </slot>
+            <section class="${this.reverseLayout?"reverse":""}">
+                <div class="textBox">
+                    <h2>${this.subtitle}</h2>
+                    <h1>${this.title}</h1>
+                    <p>${this.description}</p>
                 </div>
-                <span>
-                    <div class="small-content">
-                        <h2>
-                            ${this.cardTitle}
-                            <p>${this.cardSubtitle}</p>
-                        </h2>
-                        <a href="${this.detailsLink}" class="link">
-                            <h3 class="details">More Details -></h3>
-                        </a>
+                <div class="card">
+                    <div class="content">
+                        <slot name="interactive">
+                            ${this.isVideo?Ro`
+                                    <video
+                                        src="${this.imageSrc}"
+                                        autoplay
+                                        loop
+                                        muted
+                                        playsinline
+                                        aria-label="${this.imageAlt}"
+                                    ></video>`:Ro`<img src="${this.imageSrc}" alt="${this.imageAlt}"/>`}
+                        </slot>
                     </div>
-                </span>
-            </div>
-        </section>
-    `}};Js.styles=bd`
+                    <span>
+                        <div class="small-content">
+                            <h2>
+                                ${this.cardTitle}
+                                <p>${this.cardSubtitle}</p>
+                            </h2>
+                            <a href="${this.detailsLink}" class="link">
+                                <h3 class="details">More Details -></h3>
+                            </a>
+                        </div>
+                    </span>
+                </div>
+            </section>
+        `}};Js.styles=bd`
         h1 {
             font-size: 2rem;
             font-weight: 700;
@@ -269,9 +226,9 @@
             flex-direction: row;
             justify-content: space-between;
             align-items: flex-start;
-            gap: 2rem;
-            margin: 10rem 3rem 20rem 3rem;
-            max-width: 70rem;
+            gap: 4vw;
+            margin: 15vh 3vw 25vh 3vw;
+            max-width: 90vw;
             width: 100%;
         }
 
@@ -284,25 +241,25 @@
             position: relative;
             background-color: #f8f9fa;
             box-sizing: border-box;
-            margin-left: 2em;
+            margin-left: 3vw;
             border: 2px solid #f8f9fa;
-            border-radius: 0.5rem;
+            border-radius: 1vw;
             width: 50%;
-            min-width: 300px;
+            min-width: 40vw;
             z-index: 1;
         }
 
         section.reverse .card {
             margin-left: 0;
-            margin-right: 2em;
+            margin-right: 3vw;
         }
 
         .content {
-            padding: 1.25rem;
+            padding: 2vw;
             position: relative;
             z-index: 10;
             background-color: #f8f9fa;
-            border-radius: 0.5rem;
+            border-radius: 1vw;
             width: 100%;
             box-sizing: border-box;
         }
@@ -310,43 +267,46 @@
         slot[name="interactive"]::slotted(*) {
             display: block;
             width: 100%;
-            height: 350px;
-            border-radius: 0.5rem;
+            height: 45vh;
+            min-height: 250px;
+            border-radius: 1vw;
         }
 
         span {
             position: absolute;
-            border-radius: 0.5rem;
-            width: 100%;
-            height: 100%;
-            top: 6rem;
-            right: 3rem;
+            border-radius: 1vw;
+            width: calc(100% - 2vw);
+            height: calc(100% + 5vh);
+            top: 6vh;
+            right: -3vw;
             border: 2px solid white;
-            z-index: 0;
+            z-index: -1;
+            box-sizing: border-box;
         }
 
         section.reverse span {
             right: auto;
-            left: 3rem;
+            left: -3vw;
         }
 
         .small-content {
             display: flex;
             position: absolute;
-            left: 3rem;
-            right: 2rem;
-            bottom: 2rem;
+            left: 2vw;
+            right: 2vw;
+            bottom: 2vh;
+            min-height: 8vh;
             justify-content: space-between;
-            align-items: center;
-            flex-wrap: wrap;
-            gap: 1rem;
+            align-items: flex-end;
+            padding-top: 2vh;
+            gap: 2vw;
         }
 
         img, video {
-            object-fit: contain;
-            border-radius: 0.5rem;
+            object-fit: fill;
+            border-radius: 1vw;
             width: 100%;
-            height: auto;
+            height: 35vh;
             min-height: 200px;
         }
 
@@ -360,10 +320,10 @@
             flex-direction: column;
             justify-content: flex-start;
             align-items: flex-start;
-            gap: 0.25rem;
-            margin: 3rem;
+            gap: 1vh;
+            margin: 4vw;
             width: 50%;
-            min-width: 250px;
+            min-width: 35vw;
         }
 
         .details {
@@ -373,46 +333,7 @@
             align-items: flex-end;
         }
 
-        @media screen and (max-width: 80rem) {
-            section {
-                margin: 8rem 2rem 15rem 2rem;
-            }
-
-            h1 {
-                font-size: 1.75rem;
-            }
-        }
-
-        @media screen and (max-width: 60rem) {
-            section {
-                margin: 5rem 1.5rem 10rem 1.5rem;
-                gap: 1.5rem;
-            }
-
-            h1 {
-                font-size: 1.5rem;
-            }
-
-            h2 {
-                font-size: 1rem;
-            }
-
-            span {
-                right: 1.5rem;
-                top: 5rem;
-            }
-
-            section.reverse span {
-                right: auto;
-                left: 1.5rem;
-            }
-
-            .small-content {
-                font-size: 0.9rem;
-            }
-        }
-
-        @media screen and (max-width: 45rem) {
+        @media screen and (max-width: 700px) {
             section,
             section.reverse {
                 flex-direction: column;
@@ -422,10 +343,23 @@
             .card {
                 margin-left: 0 !important;
                 margin-right: 0 !important;
+                width: 90vw;
+                min-width: unset;
+            }
+
+            .textBox {
+                width: 90vw;
+                min-width: unset;
+                margin: 4vw 2vw;
             }
 
             span {
-                right: 1.5rem !important;
+                right: -2vw !important;
+                left: auto !important;
+            }
+
+            section.reverse span {
+                right: -2vw !important;
                 left: auto !important;
             }
         }
